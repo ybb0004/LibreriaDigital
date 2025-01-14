@@ -14,11 +14,22 @@ import javax.swing.UIManager;
  * @author Youssef Benavente
  */
 public class PantallaPrincipal extends javax.swing.JFrame {
-    
+
     DefaultListModel<String> listaLibros = new DefaultListModel<>();
-    
-    
-    Libro libro1 = new Libro("Las 48 leyes del poder", "Robert Greene", "Libro de autoyuda", 1998, "El libro es una guía diseñada para poder mostrarle al lector cuáles son las cualidades personales que se deben de tener para alcanzar el poder en términos sociológicos, un método práctico para todo aquel que quiera conseguir el poder, observe el poder, o tenga que defenderse del poder. ", "/images/Las48LeyesDelPoder.png");
+
+    Libro libro1 = new Libro("Las 48 leyes del poder", "Robert Greene", "Libro de autoayuda", 1998, "El libro es una guía diseñada para mostrarle al lector cuáles son las cualidades personales que se deben tener para alcanzar el poder en términos sociológicos, un método práctico para todo aquel que quiera conseguir el poder, observar el poder o defenderse del poder.", "/images/Las48LeyesDelPoder.png");
+
+    Libro libro2 = new Libro("Cien años de soledad", "Gabriel García Márquez", "Novela", 1967, "Una obra maestra de la literatura latinoamericana que narra la historia de la familia Buendía en el pueblo ficticio de Macondo, explorando temas de soledad, amor y destino.", "/images/CienAñosDeSoledad.jpg");
+
+    Libro libro3 = new Libro("El arte de la guerra", "Sun Tzu", "Estratégia", -5000, "Un antiguo tratado chino sobre estrategia militar que ha influido en líderes militares y empresarios a lo largo de la historia.", "/images/ElArteDeLaGuerra.jpg");
+
+    Libro libro4 = new Libro("1984", "George Orwell", "Distopía", 1949, "Una novela que presenta una sociedad totalitaria donde el gobierno controla todos los aspectos de la vida y la verdad es manipulada.", "/images/1984.jpg");
+
+    Libro libro5 = new Libro("Orgullo y prejuicio", "Jane Austen", "Romance", 1813, "Una novela que explora las complicaciones del amor y las relaciones sociales en la Inglaterra del siglo XIX a través de la historia de Elizabeth Bennet y Mr. Darcy.", "/images/OrgulloYPrejuicio.jpg");
+
+    Libro libro6 = new Libro("El Principito", "Antoine de Saint-Exupéry", "Fábula", 1943, "Una historia poética que narra las aventuras de un joven príncipe que viaja por diferentes planetas, reflexionando sobre la vida y las relaciones humanas.", "/images/ElPrincipito.jpg");
+
+    Libro libro7 = new Libro("La sombra del viento", "Carlos Ruiz Zafón", "Novela", 2001, "Una novela que sigue la historia de un joven que descubre un libro en un misterioso cementerio de libros olvidados y se ve envuelto en un misterio literario que cambiará su vida.", "/images/LaSombraDelViento.jpg");
 
     /**
      * Creates new form PantallaPrincipal
@@ -27,7 +38,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,28 +76,28 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        btnOrgulloyPrejuicioAñadir = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
+        btnElPrincipitoAñadir = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
+        btnLaSombraDelVientoAñadir = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        tfIntroducirAutor = new javax.swing.JTextField();
+        tfIntroducirGenero = new javax.swing.JTextField();
+        tfIntroducirAño = new javax.swing.JTextField();
+        tfIntroducirTitulo = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        txtAreaSinopsisAñadir = new javax.swing.JTextArea();
+        lblFotoAñadida = new javax.swing.JLabel();
+        btnSeleccionarFoto = new javax.swing.JButton();
+        btnGuardarLibro = new javax.swing.JButton();
+        btnLimpiarFormulario = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,15 +109,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jPanel4.setMaximumSize(new java.awt.Dimension(150, 100));
-        jPanel4.setMinimumSize(new java.awt.Dimension(100, 100));
+        jPanel4.setMinimumSize(new java.awt.Dimension(150, 100));
         jPanel4.setPreferredSize(new java.awt.Dimension(150, 100));
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
         listaLibrosTenedor.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Las 48 leyes del poder", "Cien años de soledad", "El arte de la guerra", "1984", " " };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        listaLibrosTenedor.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listaLibrosTenedor.setToolTipText("");
         jScrollPane1.setViewportView(listaLibrosTenedor);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -214,7 +226,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblSinopsisNoSeModifica)
                                     .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(lblEstadoNoSeModifica, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -280,15 +292,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel9.setLayout(new java.awt.BorderLayout(20, 20));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Libro1");
+        jLabel3.setText("Orgullo y prejuicio");
         jLabel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 10, 2, 1));
         jPanel9.add(jLabel3, java.awt.BorderLayout.WEST);
 
-        jButton5.setText("Añadir");
-        jButton5.setMaximumSize(new java.awt.Dimension(76, 25));
-        jButton5.setMinimumSize(new java.awt.Dimension(76, 25));
-        jButton5.setPreferredSize(new java.awt.Dimension(76, 25));
-        jPanel9.add(jButton5, java.awt.BorderLayout.EAST);
+        btnOrgulloyPrejuicioAñadir.setText("Añadir");
+        btnOrgulloyPrejuicioAñadir.setMaximumSize(new java.awt.Dimension(76, 25));
+        btnOrgulloyPrejuicioAñadir.setMinimumSize(new java.awt.Dimension(76, 25));
+        btnOrgulloyPrejuicioAñadir.setPreferredSize(new java.awt.Dimension(76, 25));
+        jPanel9.add(btnOrgulloyPrejuicioAñadir, java.awt.BorderLayout.EAST);
 
         jPanel13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel13.setMaximumSize(new java.awt.Dimension(528, 61));
@@ -296,15 +308,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel13.setLayout(new java.awt.BorderLayout(20, 20));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Libro1");
+        jLabel7.setText("El Principito");
         jLabel7.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 10, 2, 1));
         jPanel13.add(jLabel7, java.awt.BorderLayout.WEST);
 
-        jButton9.setText("Añadir");
-        jButton9.setMaximumSize(new java.awt.Dimension(76, 25));
-        jButton9.setMinimumSize(new java.awt.Dimension(76, 25));
-        jButton9.setPreferredSize(new java.awt.Dimension(76, 25));
-        jPanel13.add(jButton9, java.awt.BorderLayout.EAST);
+        btnElPrincipitoAñadir.setText("Añadir");
+        btnElPrincipitoAñadir.setMaximumSize(new java.awt.Dimension(76, 25));
+        btnElPrincipitoAñadir.setMinimumSize(new java.awt.Dimension(76, 25));
+        btnElPrincipitoAñadir.setPreferredSize(new java.awt.Dimension(76, 25));
+        jPanel13.add(btnElPrincipitoAñadir, java.awt.BorderLayout.EAST);
 
         jPanel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel14.setMaximumSize(new java.awt.Dimension(528, 61));
@@ -312,15 +324,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel14.setLayout(new java.awt.BorderLayout(20, 20));
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Libro1");
+        jLabel8.setText("La sombra del viento");
         jLabel8.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 10, 2, 1));
         jPanel14.add(jLabel8, java.awt.BorderLayout.WEST);
 
-        jButton10.setText("Añadir");
-        jButton10.setMaximumSize(new java.awt.Dimension(76, 25));
-        jButton10.setMinimumSize(new java.awt.Dimension(76, 25));
-        jButton10.setPreferredSize(new java.awt.Dimension(76, 25));
-        jPanel14.add(jButton10, java.awt.BorderLayout.EAST);
+        btnLaSombraDelVientoAñadir.setText("Añadir");
+        btnLaSombraDelVientoAñadir.setMaximumSize(new java.awt.Dimension(76, 25));
+        btnLaSombraDelVientoAñadir.setMinimumSize(new java.awt.Dimension(76, 25));
+        btnLaSombraDelVientoAñadir.setPreferredSize(new java.awt.Dimension(76, 25));
+        jPanel14.add(btnLaSombraDelVientoAñadir, java.awt.BorderLayout.EAST);
 
         jPanel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel15.setMaximumSize(new java.awt.Dimension(528, 61));
@@ -349,7 +361,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
                     .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -373,61 +385,66 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("FORMULARIO PARA AÑADIR LIBRO");
 
-        jTextField1.setBackground(new java.awt.Color(32, 28, 28));
-        jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Autor del Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        tfIntroducirAutor.setBackground(new java.awt.Color(32, 28, 28));
+        tfIntroducirAutor.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Autor del Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        tfIntroducirAutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                tfIntroducirAutorActionPerformed(evt);
             }
         });
 
-        jTextField2.setBackground(new java.awt.Color(32, 28, 28));
-        jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Genero del Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfIntroducirGenero.setBackground(new java.awt.Color(32, 28, 28));
+        tfIntroducirGenero.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Genero del Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        tfIntroducirGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfIntroducirGeneroActionPerformed(evt);
             }
         });
 
-        jTextField3.setBackground(new java.awt.Color(32, 28, 28));
-        jTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Año del Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        tfIntroducirAño.setBackground(new java.awt.Color(32, 28, 28));
+        tfIntroducirAño.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Año del Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        tfIntroducirAño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                tfIntroducirAñoActionPerformed(evt);
             }
         });
 
-        jTextField4.setBackground(new java.awt.Color(32, 28, 28));
-        jTextField4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Titulo del Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        tfIntroducirTitulo.setBackground(new java.awt.Color(32, 28, 28));
+        tfIntroducirTitulo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Titulo del Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        tfIntroducirTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                tfIntroducirTituloActionPerformed(evt);
             }
         });
 
-        jTextArea1.setBackground(new java.awt.Color(32, 28, 28));
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setToolTipText("Escribe la sinopsis....");
-        jTextArea1.setWrapStyleWord(true);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sinopsis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
-        jScrollPane3.setViewportView(jTextArea1);
+        txtAreaSinopsisAñadir.setBackground(new java.awt.Color(32, 28, 28));
+        txtAreaSinopsisAñadir.setColumns(20);
+        txtAreaSinopsisAñadir.setLineWrap(true);
+        txtAreaSinopsisAñadir.setRows(5);
+        txtAreaSinopsisAñadir.setToolTipText("Escribe la sinopsis....");
+        txtAreaSinopsisAñadir.setWrapStyleWord(true);
+        txtAreaSinopsisAñadir.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sinopsis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
+        jScrollPane3.setViewportView(txtAreaSinopsisAñadir);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Sin Foto");
-        jLabel2.setToolTipText("");
-        jLabel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel2.setMaximumSize(new java.awt.Dimension(200, 200));
-        jLabel2.setMinimumSize(new java.awt.Dimension(200, 200));
-        jLabel2.setPreferredSize(new java.awt.Dimension(200, 200));
+        lblFotoAñadida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFotoAñadida.setText("Sin Foto");
+        lblFotoAñadida.setToolTipText("");
+        lblFotoAñadida.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblFotoAñadida.setMaximumSize(new java.awt.Dimension(200, 200));
+        lblFotoAñadida.setMinimumSize(new java.awt.Dimension(200, 200));
+        lblFotoAñadida.setPreferredSize(new java.awt.Dimension(200, 200));
 
-        jButton1.setText("Seleccionar Foto");
+        btnSeleccionarFoto.setText("Seleccionar Foto");
 
-        jButton3.setText("Guardar");
+        btnGuardarLibro.setText("Guardar");
 
-        jButton4.setBackground(new java.awt.Color(255, 0, 0));
-        jButton4.setText("Limpiar Formulario");
+        btnLimpiarFormulario.setBackground(new java.awt.Color(255, 0, 0));
+        btnLimpiarFormulario.setText("Limpiar Formulario");
+        btnLimpiarFormulario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarFormularioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -441,24 +458,24 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfIntroducirTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfIntroducirAño, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfIntroducirGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfIntroducirAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(106, 106, 106)
-                        .addComponent(jButton3)
+                        .addComponent(btnGuardarLibro)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(0, 55, Short.MAX_VALUE)
+                .addGap(0, 34, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton1))
-                .addContainerGap(56, Short.MAX_VALUE))
+                    .addComponent(lblFotoAñadida, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiarFormulario)
+                    .addComponent(btnSeleccionarFoto)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -468,24 +485,24 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfIntroducirTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfIntroducirAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfIntroducirGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfIntroducirAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblFotoAñadida, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSeleccionarFoto)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(btnGuardarLibro)
+                    .addComponent(btnLimpiarFormulario))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -499,7 +516,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 726, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -513,27 +530,38 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void tfIntroducirAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIntroducirAutorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_tfIntroducirAutorActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void tfIntroducirGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIntroducirGeneroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_tfIntroducirGeneroActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void tfIntroducirAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIntroducirAñoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_tfIntroducirAñoActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void tfIntroducirTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIntroducirTituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_tfIntroducirTituloActionPerformed
 
     private void btnVerLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerLibroActionPerformed
         // TODO add your handling code here:
         ImageIcon icon = new ImageIcon(getClass().getResource(libro1.getUrlFoto()));
         lblFoto.setIcon(icon);
     }//GEN-LAST:event_btnVerLibroActionPerformed
+
+    private void btnLimpiarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarFormularioActionPerformed
+        //Boton que limpia el formulario dejandolo Vacio
+        tfIntroducirTitulo.setText("");
+        tfIntroducirAutor.setText("");
+        tfIntroducirAño.setText("");
+        tfIntroducirGenero.setText("");
+        txtAreaSinopsisAñadir.setText("");
+        lblFoto.setText("Sin Foto");
+        
+    }//GEN-LAST:event_btnLimpiarFormularioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -544,16 +572,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-      // añadir este codigo para adaptar la interfaz
-        
+        // añadir este codigo para adaptar la interfaz
+
         try {
             //codigo
-            
+
             UIManager.setLookAndFeel(new FlatMacDarkLaf());
 
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
+        }
 
         //</editor-fold>
 
@@ -566,19 +594,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnElPrincipitoAñadir;
+    private javax.swing.JButton btnGuardarLibro;
+    private javax.swing.JButton btnLaSombraDelVientoAñadir;
     private javax.swing.JButton btnLibro;
+    private javax.swing.JButton btnLimpiarFormulario;
+    private javax.swing.JButton btnOrgulloyPrejuicioAñadir;
+    private javax.swing.JButton btnSeleccionarFoto;
     private javax.swing.JButton btnVerLibro;
     private javax.swing.JComboBox<String> cbEstadoLibro;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -600,15 +627,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lblAutorNoSeModifica;
     private javax.swing.JLabel lblAñoNoSeModifica;
     private javax.swing.JLabel lblEstadoNoSeModifica;
     private javax.swing.JLabel lblFoto;
+    private javax.swing.JLabel lblFotoAñadida;
     private javax.swing.JLabel lblGeneroNoSeModifica;
     private javax.swing.JLabel lblSinopsisNoSeModifica;
     private javax.swing.JLabel lblTitulo;
@@ -616,6 +639,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblVerAutor;
     private javax.swing.JLabel lblVerGenero;
     private javax.swing.JList<String> listaLibrosTenedor;
+    private javax.swing.JTextField tfIntroducirAutor;
+    private javax.swing.JTextField tfIntroducirAño;
+    private javax.swing.JTextField tfIntroducirGenero;
+    private javax.swing.JTextField tfIntroducirTitulo;
     private javax.swing.JTextArea txtAreaSinopsis;
+    private javax.swing.JTextArea txtAreaSinopsisAñadir;
     // End of variables declaration//GEN-END:variables
 }
