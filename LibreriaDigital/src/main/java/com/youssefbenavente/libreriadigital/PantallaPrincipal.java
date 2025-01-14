@@ -5,6 +5,8 @@
 package com.youssefbenavente.libreriadigital;
 
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 
 /**
@@ -12,6 +14,11 @@ import javax.swing.UIManager;
  * @author Youssef Benavente
  */
 public class PantallaPrincipal extends javax.swing.JFrame {
+    
+    DefaultListModel<String> listaLibros = new DefaultListModel<>();
+    
+    
+    Libro libro1 = new Libro("Las 48 leyes del poder", "Robert Greene", "Libro de autoyuda", 1998, "El libro es una guía diseñada para poder mostrarle al lector cuáles son las cualidades personales que se deben de tener para alcanzar el poder en términos sociológicos, un método práctico para todo aquel que quiera conseguir el poder, observe el poder, o tenga que defenderse del poder. ", "/images/Las48LeyesDelPoder.png");
 
     /**
      * Creates new form PantallaPrincipal
@@ -20,6 +27,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,7 +42,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listaLibrosTenedor = new javax.swing.JList<>();
         jPanel6 = new javax.swing.JPanel();
         btnVerLibro = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -95,12 +103,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel4.setPreferredSize(new java.awt.Dimension(150, 100));
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listaLibrosTenedor.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listaLibrosTenedor);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -111,6 +119,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel4.add(jScrollPane1, gridBagConstraints);
 
         btnVerLibro.setText("Ver Libro");
+        btnVerLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerLibroActionPerformed(evt);
+            }
+        });
         jPanel6.add(btnVerLibro);
 
         jButton2.setText("Eliminar ");
@@ -516,6 +529,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
+    private void btnVerLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerLibroActionPerformed
+        // TODO add your handling code here:
+        ImageIcon icon = new ImageIcon(getClass().getResource(libro1.getUrlFoto()));
+        lblFoto.setIcon(icon);
+    }//GEN-LAST:event_btnVerLibroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -564,7 +583,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
@@ -597,6 +615,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblVerAnio;
     private javax.swing.JLabel lblVerAutor;
     private javax.swing.JLabel lblVerGenero;
+    private javax.swing.JList<String> listaLibrosTenedor;
     private javax.swing.JTextArea txtAreaSinopsis;
     // End of variables declaration//GEN-END:variables
 }
