@@ -5,9 +5,21 @@
 package com.youssefbenavente.libreriadigital;
 
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import java.awt.Image;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -16,6 +28,8 @@ import javax.swing.UIManager;
 public class PantallaPrincipal extends javax.swing.JFrame {
 
     DefaultListModel<String> listaLibros = new DefaultListModel<>();
+    private ArrayList<Libro> libros = new ArrayList<>();
+    String rutaGuardada;
 
     Libro libro1 = new Libro("Las 48 leyes del poder", "Robert Greene", "Libro de autoayuda", 1998, "El libro es una guía diseñada para mostrarle al lector cuáles son las cualidades personales que se deben tener para alcanzar el poder en términos sociológicos, un método práctico para todo aquel que quiera conseguir el poder, observar el poder o defenderse del poder.", "/images/Las48LeyesDelPoder.png");
 
@@ -36,6 +50,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
      */
     public PantallaPrincipal() {
         initComponents();
+        inicializarListaLibros();
+
     }
 
     /**
@@ -55,7 +71,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         listaLibrosTenedor = new javax.swing.JList<>();
         jPanel6 = new javax.swing.JPanel();
         btnVerLibro = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEliminarLibro = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         lblFoto = new javax.swing.JLabel();
@@ -71,6 +87,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblVerAnio = new javax.swing.JLabel();
         lblVerGenero = new javax.swing.JLabel();
         lblVerAutor = new javax.swing.JLabel();
+        btnGuardarEstado = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
@@ -138,10 +155,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         });
         jPanel6.add(btnVerLibro);
 
-        jButton2.setText("Eliminar ");
-        jButton2.setMinimumSize(new java.awt.Dimension(82, 27));
-        jButton2.setPreferredSize(null);
-        jPanel6.add(jButton2);
+        btnEliminarLibro.setText("Eliminar ");
+        btnEliminarLibro.setMinimumSize(new java.awt.Dimension(82, 27));
+        btnEliminarLibro.setPreferredSize(null);
+        btnEliminarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarLibroActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnEliminarLibro);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -197,6 +219,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblVerAutor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVerAutor.setText("jLabel3");
 
+        btnGuardarEstado.setText("Guardar Cambios");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -233,6 +257,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(cbEstadoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGuardarEstado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -266,7 +292,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbEstadoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardarEstado))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
@@ -280,7 +307,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Mis Libros", jPanel1);
 
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
@@ -435,8 +462,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblFotoAñadida.setPreferredSize(new java.awt.Dimension(200, 200));
 
         btnSeleccionarFoto.setText("Seleccionar Foto");
+        btnSeleccionarFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarFotoActionPerformed(evt);
+            }
+        });
 
         btnGuardarLibro.setText("Guardar");
+        btnGuardarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarLibroActionPerformed(evt);
+            }
+        });
 
         btnLimpiarFormulario.setBackground(new java.awt.Color(255, 0, 0));
         btnLimpiarFormulario.setText("Limpiar Formulario");
@@ -461,8 +498,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                             .addComponent(tfIntroducirTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfIntroducirAño, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfIntroducirGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfIntroducirAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(tfIntroducirAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(106, 106, 106)
                         .addComponent(btnGuardarLibro)
@@ -547,21 +583,174 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_tfIntroducirTituloActionPerformed
 
     private void btnVerLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerLibroActionPerformed
-        // TODO add your handling code here:
-        ImageIcon icon = new ImageIcon(getClass().getResource(libro1.getUrlFoto()));
-        lblFoto.setIcon(icon);
+        String nombre = listaLibrosTenedor.getSelectedValue(); // Título del libro seleccionado
+
+        // Buscar el libro correspondiente
+        for (Libro libro : libros) {
+            if (libro.getTitulo().equals(nombre)) {
+                // Mostrar los detalles del libro
+                lblTitulo.setText(libro.getTitulo());
+                lblVerAutor.setText(libro.getAutor());
+                lblVerGenero.setText(libro.getGenero());
+                lblVerAnio.setText(String.valueOf(libro.getAnio()));
+                txtAreaSinopsis.setText(libro.getSinopsis());
+                ImageIcon icon = new ImageIcon(getClass().getResource(libro.getUrlFoto()));
+                lblFoto.setText("");
+                lblFoto.setIcon(icon);
+
+                return; // Salir del bucle una vez encontrado el libro
+            }
+        }
+
     }//GEN-LAST:event_btnVerLibroActionPerformed
 
     private void btnLimpiarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarFormularioActionPerformed
         //Boton que limpia el formulario dejandolo Vacio
+        limpiarFormulario();
+
+    }//GEN-LAST:event_btnLimpiarFormularioActionPerformed
+
+    private void btnSeleccionarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarFotoActionPerformed
+        // TODO add your handling code here:
+        seleccionarFoto();
+    }//GEN-LAST:event_btnSeleccionarFotoActionPerformed
+
+    private void btnGuardarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarLibroActionPerformed
+        // TODO add your handling code here:
+        guardarLibro();
+    }//GEN-LAST:event_btnGuardarLibroActionPerformed
+
+    private void btnEliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarLibroActionPerformed
+        // TODO add your handling code here:
+        borrarLibro();
+    }//GEN-LAST:event_btnEliminarLibroActionPerformed
+
+    //Funciona
+    private void limpiarFormulario() {
         tfIntroducirTitulo.setText("");
         tfIntroducirAutor.setText("");
         tfIntroducirAño.setText("");
         tfIntroducirGenero.setText("");
         txtAreaSinopsisAñadir.setText("");
-        lblFoto.setText("Sin Foto");
-        
-    }//GEN-LAST:event_btnLimpiarFormularioActionPerformed
+        lblFotoAñadida.setText("Sin Foto");
+        lblFotoAñadida.setIcon(null);
+    }
+
+    //comprobar
+    private void borrarLibro() {
+        int selectedIndex = listaLibrosTenedor.getSelectedIndex();
+        if (selectedIndex != -1) {
+            listaLibros.remove(selectedIndex);
+            JOptionPane.showMessageDialog(this, "Libro eliminado exitosamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, selecciona un libro para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    //comprobar
+    private void inicializarListaLibros() {
+        libros.add(libro1);
+        libros.add(libro2);
+        libros.add(libro3);
+        libros.add(libro4);
+        libros.add(libro5);
+        libros.add(libro6);
+
+        for (Libro libro : libros) {
+            listaLibros.addElement(libro.getTitulo());
+        }
+        listaLibrosTenedor.setModel(listaLibros);
+    }
+
+    //Funciona
+    private void seleccionarFoto() {
+        // Crear un JFileChooser
+        JFileChooser fileChooser = new JFileChooser();
+
+        // Filtrar solo imágenes
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de imagen", "jpg", "png", "jpeg", "webp", "avif");
+        fileChooser.setFileFilter(filtro);
+
+        // Mostrar el JFileChooser y obtener la imagen seleccionada
+        int resultado = fileChooser.showOpenDialog(this);
+
+        // Si se seleccionó un archivo
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            File archivoSeleccionado = fileChooser.getSelectedFile();
+
+            // Cargar la imagen en la etiqueta
+            ImageIcon icon = new ImageIcon(archivoSeleccionado.getAbsolutePath());
+            lblFotoAñadida.setIcon(icon);
+            lblFotoAñadida.setText(""); // Limpiar texto si hay imagen
+
+            // Define el directorio de destino (src/main/resources/images)
+            String rutaDestino = "src/main/resources/images/" + archivoSeleccionado.getName();
+
+            // Copiar la imagen seleccionada a la carpeta 'resources/images'
+            File destino = new File(rutaDestino);
+            copiarArchivo(archivoSeleccionado, destino);
+                        rutaGuardada = archivoSeleccionado.getName();
+        }
+    }
+
+    //Funciona
+// Método para copiar el archivo a la carpeta destino
+    private void copiarArchivo(File origen, File destino) {
+        try (InputStream in = new FileInputStream(origen); OutputStream out = new FileOutputStream(destino)) {
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = in.read(buffer)) > 0) {
+                out.write(buffer, 0, length);
+                
+            }
+                        
+            JOptionPane.showMessageDialog(this, "Imagen guardada exitosamente en: " + destino.getAbsolutePath());
+
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Error al guardar la imagen: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void guardarLibro() {
+        // Obtener datos de los campos
+        String titulo = tfIntroducirTitulo.getText().trim();
+        String autor = tfIntroducirAutor.getText().trim();
+        String genero = tfIntroducirGenero.getText().trim();
+        String anioStr = tfIntroducirAño.getText().trim();
+        String sinopsis = txtAreaSinopsisAñadir.getText().trim();
+        String imagenUrl = "/images/"+rutaGuardada;
+
+// Formatear la URL
+        //String imagenUrl = nombreFoto; // Asumiendo que aquí se muestra el nombre del archivo
+
+        // Validar que los campos no estén vacíos
+        if (titulo.isEmpty() || autor.isEmpty() || genero.isEmpty() || anioStr.isEmpty() || sinopsis.isEmpty() || imagenUrl.equals("Sin Foto")) {
+            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Convertir año a entero
+        int anio;
+        try {
+            anio = Integer.parseInt(anioStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El año debe ser un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Crear el objeto Libro
+        Libro nuevoLibro = new Libro(titulo, autor, genero, anio, sinopsis, imagenUrl);
+
+        // Añadir el libro a la lista
+        listaLibros.addElement(nuevoLibro.getTitulo());
+        libros.add(nuevoLibro);
+        listaLibrosTenedor.setModel(listaLibros); // Asignar el DefaultListModel a la JList
+
+        // Limpiar los campos después de añadir el libro
+        limpiarFormulario();
+
+        JOptionPane.showMessageDialog(this, "Libro guardado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     /**
      * @param args the command line arguments
@@ -593,8 +782,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnElPrincipitoAñadir;
+    private javax.swing.JButton btnEliminarLibro;
+    private javax.swing.JButton btnGuardarEstado;
     private javax.swing.JButton btnGuardarLibro;
     private javax.swing.JButton btnLaSombraDelVientoAñadir;
     private javax.swing.JButton btnLibro;
@@ -604,7 +796,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnVerLibro;
     private javax.swing.JComboBox<String> cbEstadoLibro;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
