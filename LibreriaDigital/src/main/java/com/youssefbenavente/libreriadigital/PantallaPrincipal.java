@@ -85,13 +85,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        btnOrgulloyPrejuicioAñadir = new javax.swing.JButton();
+        btnLaSombraDelVientoAñadir = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         btnElPrincipitoAñadir = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        btnLaSombraDelVientoAñadir = new javax.swing.JButton();
+        btnAñadir = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
@@ -108,6 +108,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnGuardarLibro = new javax.swing.JButton();
         btnLimpiarFormulario = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LibreriaDigital by Youssef Benavente Chantoufi");
@@ -204,6 +208,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         cbEstadoLibro.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbEstadoLibroItemStateChanged(evt);
+            }
+        });
+        cbEstadoLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEstadoLibroActionPerformed(evt);
             }
         });
 
@@ -304,16 +313,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 10, 2, 1));
         jPanel9.add(jLabel3, java.awt.BorderLayout.WEST);
 
-        btnOrgulloyPrejuicioAñadir.setText("Añadir");
-        btnOrgulloyPrejuicioAñadir.setMaximumSize(new java.awt.Dimension(76, 25));
-        btnOrgulloyPrejuicioAñadir.setMinimumSize(new java.awt.Dimension(76, 25));
-        btnOrgulloyPrejuicioAñadir.setPreferredSize(new java.awt.Dimension(76, 25));
-        btnOrgulloyPrejuicioAñadir.addActionListener(new java.awt.event.ActionListener() {
+        btnLaSombraDelVientoAñadir.setText("Añadir");
+        btnLaSombraDelVientoAñadir.setMaximumSize(new java.awt.Dimension(76, 25));
+        btnLaSombraDelVientoAñadir.setMinimumSize(new java.awt.Dimension(76, 25));
+        btnLaSombraDelVientoAñadir.setPreferredSize(new java.awt.Dimension(76, 25));
+        btnLaSombraDelVientoAñadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrgulloyPrejuicioAñadirActionPerformed(evt);
+                btnLaSombraDelVientoAñadirActionPerformed(evt);
             }
         });
-        jPanel9.add(btnOrgulloyPrejuicioAñadir, java.awt.BorderLayout.EAST);
+        jPanel9.add(btnLaSombraDelVientoAñadir, java.awt.BorderLayout.EAST);
 
         jPanel13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel13.setMaximumSize(new java.awt.Dimension(528, 61));
@@ -337,15 +346,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel14.setLayout(new java.awt.BorderLayout(20, 20));
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("La sombra del viento");
+        jLabel8.setText("Locuras");
         jLabel8.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 10, 2, 1));
         jPanel14.add(jLabel8, java.awt.BorderLayout.WEST);
 
-        btnLaSombraDelVientoAñadir.setText("Añadir");
-        btnLaSombraDelVientoAñadir.setMaximumSize(new java.awt.Dimension(76, 25));
-        btnLaSombraDelVientoAñadir.setMinimumSize(new java.awt.Dimension(76, 25));
-        btnLaSombraDelVientoAñadir.setPreferredSize(new java.awt.Dimension(76, 25));
-        jPanel14.add(btnLaSombraDelVientoAñadir, java.awt.BorderLayout.EAST);
+        btnAñadir.setText("Añadir");
+        btnAñadir.setMaximumSize(new java.awt.Dimension(76, 25));
+        btnAñadir.setMinimumSize(new java.awt.Dimension(76, 25));
+        btnAñadir.setPreferredSize(new java.awt.Dimension(76, 25));
+        jPanel14.add(btnAñadir, java.awt.BorderLayout.EAST);
 
         jPanel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel15.setMaximumSize(new java.awt.Dimension(528, 61));
@@ -536,15 +545,45 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Biblioteca", jPanel2);
 
+        jLabel2.setText("Libreria Digital");
+
+        jLabel4.setText("Version 1.0");
+
+        jButton1.setText("Documentación");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Manual de usuario:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(526, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addGap(43, 43, 43)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(387, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Acerca de...", jPanel3);
@@ -601,14 +640,42 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         cambiarEstado();
     }//GEN-LAST:event_cbEstadoLibroItemStateChanged
 
-    private void btnOrgulloyPrejuicioAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrgulloyPrejuicioAñadirActionPerformed
+    private void btnLaSombraDelVientoAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaSombraDelVientoAñadirActionPerformed
         // Añadir libro boton 1
-         // Añadir el libro a la lista
-        
+        añadirLibroLaSombraDelViento();
+    }//GEN-LAST:event_btnLaSombraDelVientoAñadirActionPerformed
+
+    private void cbEstadoLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstadoLibroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbEstadoLibroActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        abrirRutaDocumentacion();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    void abrirRutaDocumentacion() {
+        try {
+            String url = "https://youssef-documentacion.gitbook.io/libreria-digital/";
+            String ruta = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+
+            ProcessBuilder chrome = new ProcessBuilder(ruta, url);
+            chrome.start();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
+    }
+
+    //Funcionando
+    void añadirLibroLaSombraDelViento() {
+        // Añadir el libro a la lista
+
         listaLibros.addElement(libro7.getTitulo());
         libros.add(libro7);
         listaLibrosTenedor.setModel(listaLibros);
-    }//GEN-LAST:event_btnOrgulloyPrejuicioAñadirActionPerformed
+    }
 
     //Funciona
     private void limpiarFormulario() {
@@ -633,7 +700,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     //comprobar
-    private void inicializarListaLibros() {
+    public void inicializarListaLibros() {
         libros.add(libro1);
         libros.add(libro2);
         libros.add(libro3);
@@ -814,18 +881,22 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAñadir;
     private javax.swing.JButton btnElPrincipitoAñadir;
     private javax.swing.JButton btnEliminarLibro;
     private javax.swing.JButton btnGuardarLibro;
     private javax.swing.JButton btnLaSombraDelVientoAñadir;
     private javax.swing.JButton btnLimpiarFormulario;
-    private javax.swing.JButton btnOrgulloyPrejuicioAñadir;
     private javax.swing.JButton btnSeleccionarFoto;
     private javax.swing.JButton btnVerLibro;
     private javax.swing.JComboBox<String> cbEstadoLibro;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
