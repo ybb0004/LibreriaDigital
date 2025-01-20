@@ -1,11 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.youssefbenavente.libreriadigital;
 
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
-import java.awt.Image;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -13,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Collection;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -31,19 +25,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private ArrayList<Libro> libros = new ArrayList<>();
     String rutaGuardada;
 
-    Libro libro1 = new Libro("Las 48 leyes del poder", "Robert Greene", "Libro de autoayuda", 1998, "El libro es una guía diseñada para mostrarle al lector cuáles son las cualidades personales que se deben tener para alcanzar el poder en términos sociológicos, un método práctico para todo aquel que quiera conseguir el poder, observar el poder o defenderse del poder.", "/images/Las48LeyesDelPoder.png");
+    Libro libro1 = new Libro("Las 48 leyes del poder", "Robert Greene", "Libro de autoayuda", 1998, "El libro es una guía diseñada para mostrarle al lector cuáles son las cualidades personales que se deben tener para alcanzar el poder en términos sociológicos, un método práctico para todo aquel que quiera conseguir el poder, observar el poder o defenderse del poder.", "/images/Las48LeyesDelPoder.png", null);
 
-    Libro libro2 = new Libro("Cien años de soledad", "Gabriel García Márquez", "Novela", 1967, "Una obra maestra de la literatura latinoamericana que narra la historia de la familia Buendía en el pueblo ficticio de Macondo, explorando temas de soledad, amor y destino.", "/images/CienAñosDeSoledad.jpg");
+    Libro libro2 = new Libro("Cien años de soledad", "Gabriel García Márquez", "Novela", 1967, "Una obra maestra de la literatura latinoamericana que narra la historia de la familia Buendía en el pueblo ficticio de Macondo, explorando temas de soledad, amor y destino.", "/images/CienAñosDeSoledad.jpg", null);
 
-    Libro libro3 = new Libro("El arte de la guerra", "Sun Tzu", "Estratégia", -5000, "Un antiguo tratado chino sobre estrategia militar que ha influido en líderes militares y empresarios a lo largo de la historia.", "/images/ElArteDeLaGuerra.jpg");
+    Libro libro3 = new Libro("El arte de la guerra", "Sun Tzu", "Estratégia", -5000, "Un antiguo tratado chino sobre estrategia militar que ha influido en líderes militares y empresarios a lo largo de la historia.", "/images/ElArteDeLaGuerra.jpg", null);
 
-    Libro libro4 = new Libro("1984", "George Orwell", "Distopía", 1949, "Una novela que presenta una sociedad totalitaria donde el gobierno controla todos los aspectos de la vida y la verdad es manipulada.", "/images/1984.jpg");
+    Libro libro4 = new Libro("1984", "George Orwell", "Distopía", 1949, "Una novela que presenta una sociedad totalitaria donde el gobierno controla todos los aspectos de la vida y la verdad es manipulada.", "/images/1984.jpg", null);
 
-    Libro libro5 = new Libro("Orgullo y prejuicio", "Jane Austen", "Romance", 1813, "Una novela que explora las complicaciones del amor y las relaciones sociales en la Inglaterra del siglo XIX a través de la historia de Elizabeth Bennet y Mr. Darcy.", "/images/OrgulloYPrejuicio.jpg");
+    Libro libro5 = new Libro("Orgullo y prejuicio", "Jane Austen", "Romance", 1813, "Una novela que explora las complicaciones del amor y las relaciones sociales en la Inglaterra del siglo XIX a través de la historia de Elizabeth Bennet y Mr. Darcy.", "/images/OrgulloYPrejuicio.jpg", null);
 
-    Libro libro6 = new Libro("El Principito", "Antoine de Saint-Exupéry", "Fábula", 1943, "Una historia poética que narra las aventuras de un joven príncipe que viaja por diferentes planetas, reflexionando sobre la vida y las relaciones humanas.", "/images/ElPrincipito.jpg");
+    Libro libro6 = new Libro("El Principito", "Antoine de Saint-Exupéry", "Fábula", 1943, "Una historia poética que narra las aventuras de un joven príncipe que viaja por diferentes planetas, reflexionando sobre la vida y las relaciones humanas.", "/images/ElPrincipito.jpg", null);
 
-    Libro libro7 = new Libro("La sombra del viento", "Carlos Ruiz Zafón", "Novela", 2001, "Una novela que sigue la historia de un joven que descubre un libro en un misterioso cementerio de libros olvidados y se ve envuelto en un misterio literario que cambiará su vida.", "/images/LaSombraDelViento.jpg");
+    Libro libro7 = new Libro("La sombra del viento", "Carlos Ruiz Zafón", "Novela", 2001, "Una novela que sigue la historia de un joven que descubre un libro en un misterioso cementerio de libros olvidados y se ve envuelto en un misterio literario que cambiará su vida.", "/images/LaSombraDelViento.jpg", null);
 
     /**
      * Creates new form PantallaPrincipal
@@ -83,11 +77,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         txtAreaSinopsis = new javax.swing.JTextArea();
         lblEstadoNoSeModifica = new javax.swing.JLabel();
         cbEstadoLibro = new javax.swing.JComboBox<>();
-        btnLibro = new javax.swing.JButton();
         lblVerAnio = new javax.swing.JLabel();
         lblVerGenero = new javax.swing.JLabel();
         lblVerAutor = new javax.swing.JLabel();
-        btnGuardarEstado = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
@@ -119,8 +111,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LibreriaDigital by Youssef Benavente Chantoufi");
-        setMinimumSize(new java.awt.Dimension(700, 500));
-        setPreferredSize(new java.awt.Dimension(700, 500));
+        setMinimumSize(new java.awt.Dimension(750, 600));
+        setPreferredSize(new java.awt.Dimension(750, 600));
         getContentPane().setLayout(new java.awt.GridLayout(1, 1));
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -209,17 +201,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblEstadoNoSeModifica.setText("Estado");
 
         cbEstadoLibro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin leer", "En proceso", "Leído" }));
-
-        btnLibro.setText("Abrir Libro");
-
-        lblVerAnio.setText("jLabel1");
-
-        lblVerGenero.setText("jLabel2");
+        cbEstadoLibro.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbEstadoLibroItemStateChanged(evt);
+            }
+        });
 
         lblVerAutor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblVerAutor.setText("jLabel3");
-
-        btnGuardarEstado.setText("Guardar Cambios");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -240,12 +228,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addComponent(lblVerGenero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblVerAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblVerAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE))))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblSinopsisNoSeModifica)
@@ -253,14 +241,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(lblEstadoNoSeModifica, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(cbEstadoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGuardarEstado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEstadoNoSeModifica, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbEstadoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -290,11 +274,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblEstadoNoSeModifica)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbEstadoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuardarEstado))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addComponent(cbEstadoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -319,7 +300,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel9.setLayout(new java.awt.BorderLayout(20, 20));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Orgullo y prejuicio");
+        jLabel3.setText("La sombra del viento");
         jLabel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 10, 2, 1));
         jPanel9.add(jLabel3, java.awt.BorderLayout.WEST);
 
@@ -327,6 +308,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnOrgulloyPrejuicioAñadir.setMaximumSize(new java.awt.Dimension(76, 25));
         btnOrgulloyPrejuicioAñadir.setMinimumSize(new java.awt.Dimension(76, 25));
         btnOrgulloyPrejuicioAñadir.setPreferredSize(new java.awt.Dimension(76, 25));
+        btnOrgulloyPrejuicioAñadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrgulloyPrejuicioAñadirActionPerformed(evt);
+            }
+        });
         jPanel9.add(btnOrgulloyPrejuicioAñadir, java.awt.BorderLayout.EAST);
 
         jPanel13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -388,7 +374,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
                     .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,7 +387,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(315, Short.MAX_VALUE))
+                .addContainerGap(409, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Biblioteca de Libros", jPanel7);
@@ -493,25 +479,27 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tfIntroducirTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfIntroducirAño, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfIntroducirGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfIntroducirAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(btnGuardarLibro)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(tfIntroducirTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfIntroducirAño, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfIntroducirGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfIntroducirAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(106, 106, 106)
+                                .addComponent(btnGuardarLibro)))
+                        .addGap(0, 0, 0)))
                 .addContainerGap())
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(0, 34, Short.MAX_VALUE)
+                .addGap(0, 58, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblFotoAñadida, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLimpiarFormulario)
                     .addComponent(btnSeleccionarFoto)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -539,7 +527,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardarLibro)
                     .addComponent(btnLimpiarFormulario))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         jTabbedPane2.addTab("Añadir Libro", jPanel8);
@@ -552,11 +540,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 726, Short.MAX_VALUE)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Acerca de...", jPanel3);
@@ -583,47 +571,44 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_tfIntroducirTituloActionPerformed
 
     private void btnVerLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerLibroActionPerformed
-        String nombre = listaLibrosTenedor.getSelectedValue(); // Título del libro seleccionado
-
-        // Buscar el libro correspondiente
-        for (Libro libro : libros) {
-            if (libro.getTitulo().equals(nombre)) {
-                // Mostrar los detalles del libro
-                lblTitulo.setText(libro.getTitulo());
-                lblVerAutor.setText(libro.getAutor());
-                lblVerGenero.setText(libro.getGenero());
-                lblVerAnio.setText(String.valueOf(libro.getAnio()));
-                txtAreaSinopsis.setText(libro.getSinopsis());
-                ImageIcon icon = new ImageIcon(getClass().getResource(libro.getUrlFoto()));
-                lblFoto.setText("");
-                lblFoto.setIcon(icon);
-
-                return; // Salir del bucle una vez encontrado el libro
-            }
-        }
-
+        //Boton de ver libro, con la funcion verLibro
+        verLibro();
     }//GEN-LAST:event_btnVerLibroActionPerformed
 
     private void btnLimpiarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarFormularioActionPerformed
-        //Boton que limpia el formulario dejandolo Vacio
+        //Boton que limpia el formulario dejandolo Vacio, llamando a la funcion
         limpiarFormulario();
 
     }//GEN-LAST:event_btnLimpiarFormularioActionPerformed
 
     private void btnSeleccionarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarFotoActionPerformed
-        // TODO add your handling code here:
+        //Boton con funcion para seleccionar foto con filechooser
         seleccionarFoto();
     }//GEN-LAST:event_btnSeleccionarFotoActionPerformed
 
     private void btnGuardarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarLibroActionPerformed
-        // TODO add your handling code here:
+        //Boton que guarda libro creado en el formulario
         guardarLibro();
     }//GEN-LAST:event_btnGuardarLibroActionPerformed
 
     private void btnEliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarLibroActionPerformed
-        // TODO add your handling code here:
+        // boton para eliminar libro de la lista
         borrarLibro();
     }//GEN-LAST:event_btnEliminarLibroActionPerformed
+
+    private void cbEstadoLibroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbEstadoLibroItemStateChanged
+        //Evento que cambia el estado del libro automatico sin boton
+        cambiarEstado();
+    }//GEN-LAST:event_cbEstadoLibroItemStateChanged
+
+    private void btnOrgulloyPrejuicioAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrgulloyPrejuicioAñadirActionPerformed
+        // Añadir libro boton 1
+         // Añadir el libro a la lista
+        
+        listaLibros.addElement(libro7.getTitulo());
+        libros.add(libro7);
+        listaLibrosTenedor.setModel(listaLibros);
+    }//GEN-LAST:event_btnOrgulloyPrejuicioAñadirActionPerformed
 
     //Funciona
     private void limpiarFormulario() {
@@ -689,7 +674,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             // Copiar la imagen seleccionada a la carpeta 'resources/images'
             File destino = new File(rutaDestino);
             copiarArchivo(archivoSeleccionado, destino);
-                        rutaGuardada = archivoSeleccionado.getName();
+            rutaGuardada = archivoSeleccionado.getName();
         }
     }
 
@@ -701,9 +686,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             int length;
             while ((length = in.read(buffer)) > 0) {
                 out.write(buffer, 0, length);
-                
+
             }
-                        
+
             JOptionPane.showMessageDialog(this, "Imagen guardada exitosamente en: " + destino.getAbsolutePath());
 
         } catch (IOException ex) {
@@ -718,11 +703,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         String genero = tfIntroducirGenero.getText().trim();
         String anioStr = tfIntroducirAño.getText().trim();
         String sinopsis = txtAreaSinopsisAñadir.getText().trim();
-        String imagenUrl = "/images/"+rutaGuardada;
+        String imagenUrl = "/images/" + rutaGuardada;
 
 // Formatear la URL
         //String imagenUrl = nombreFoto; // Asumiendo que aquí se muestra el nombre del archivo
-
         // Validar que los campos no estén vacíos
         if (titulo.isEmpty() || autor.isEmpty() || genero.isEmpty() || anioStr.isEmpty() || sinopsis.isEmpty() || imagenUrl.equals("Sin Foto")) {
             JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -739,7 +723,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }
 
         // Crear el objeto Libro
-        Libro nuevoLibro = new Libro(titulo, autor, genero, anio, sinopsis, imagenUrl);
+        Libro nuevoLibro = new Libro(titulo, autor, genero, anio, sinopsis, imagenUrl, null);
 
         // Añadir el libro a la lista
         listaLibros.addElement(nuevoLibro.getTitulo());
@@ -750,6 +734,52 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         limpiarFormulario();
 
         JOptionPane.showMessageDialog(this, "Libro guardado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void verLibro() {
+        String nombre = listaLibrosTenedor.getSelectedValue(); // Título del libro seleccionado
+
+        // Buscar el libro correspondiente
+        for (Libro libro : libros) {
+            if (libro.getTitulo().equals(nombre)) {
+                // Mostrar los detalles del libro
+                lblTitulo.setText(libro.getTitulo());
+                lblVerAutor.setText(libro.getAutor());
+                lblVerGenero.setText(libro.getGenero());
+                lblVerAnio.setText(String.valueOf(libro.getAnio()));
+                txtAreaSinopsis.setText(libro.getSinopsis());
+                ImageIcon icon = new ImageIcon(getClass().getResource(libro.getUrlFoto()));
+                lblFoto.setText("");
+                lblFoto.setIcon(icon);
+                cbEstadoLibro.setSelectedItem(libro.getEstado());
+
+                return; // Salir del bucle una vez encontrado el libro
+            }
+        }
+    }
+
+    private void cambiarEstado() {
+        // Obtener el estado seleccionado del combo box
+        String estadoSeleccionado = (String) cbEstadoLibro.getSelectedItem();
+
+        // Obtener el título del libro seleccionado en la lista
+        String tituloSeleccionado = listaLibrosTenedor.getSelectedValue();
+
+        // Verificar si hay un libro seleccionado
+        if (tituloSeleccionado != null) {
+            // Buscar el libro correspondiente
+            for (Libro libro : libros) {
+                if (libro.getTitulo().equals(tituloSeleccionado)) {
+                    // Asignar el estado al libro seleccionado
+                    libro.setEstado(estadoSeleccionado);
+
+                    return; // Salir después de actualizar
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, selecciona un libro.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
     }
 
     /**
@@ -786,10 +816,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnElPrincipitoAñadir;
     private javax.swing.JButton btnEliminarLibro;
-    private javax.swing.JButton btnGuardarEstado;
     private javax.swing.JButton btnGuardarLibro;
     private javax.swing.JButton btnLaSombraDelVientoAñadir;
-    private javax.swing.JButton btnLibro;
     private javax.swing.JButton btnLimpiarFormulario;
     private javax.swing.JButton btnOrgulloyPrejuicioAñadir;
     private javax.swing.JButton btnSeleccionarFoto;

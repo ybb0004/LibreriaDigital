@@ -9,14 +9,16 @@ public class Libro  {
     private int anio;
     private String sinopsis;
     private String urlFoto;
+    private String estado;
 
-    public Libro(String titulo, String autor, String genero, int anio, String sinopsis, String urlFoto) {
+    public Libro(String titulo, String autor, String genero, int anio, String sinopsis, String urlFoto, String estado) {
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
         this.anio = anio;
         this.sinopsis = sinopsis;
         this.urlFoto = urlFoto;
+        this.estado = estado;
     }
 
     // Getters
@@ -43,6 +45,10 @@ public class Libro  {
     public String getUrlFoto() {
         return urlFoto;
     }
+    
+     public String getEstado() {
+        return estado;
+    }
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
@@ -68,7 +74,9 @@ public class Libro  {
         this.urlFoto = urlFoto;
     }
     
-    
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     @Override
     public String toString() {
