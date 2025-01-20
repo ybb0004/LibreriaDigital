@@ -41,7 +41,7 @@ public class PantallaPrincipalTest {
     }
 
     @Test
-    public void testAñadirLibroOrgulloyPrejuicio() {
+    public void testAñadirLibroLaSombraDelViento() {
         pantallaPrincipal.añadirLibroLaSombraDelViento();
 
         String libroEsperado = "La sombra del viento";
